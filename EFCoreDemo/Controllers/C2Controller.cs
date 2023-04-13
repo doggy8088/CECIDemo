@@ -1,6 +1,7 @@
 ﻿using EFCoreDemo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreDemo.Controllers
 {
@@ -18,7 +19,7 @@ namespace EFCoreDemo.Controllers
         [HttpGet]
         public IEnumerable<Course> Get(string? name)
         {
-            var data = context.Course.AsQueryable();
+            var data = context.Course.AsNoTracking().AsQueryable();
             if (!String.IsNullOrEmpty(name))
             {
                 data = data.Where(p => p.Title.Contains(name));
@@ -60,6 +61,8 @@ namespace EFCoreDemo.Controllers
 
             item.Title = course.Title;
             item.Credits = course.Credits;
+
+            //item.UpdatedOn = DateTime.Now;
 
             context.SaveChanges();
 
