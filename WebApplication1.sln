@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{73CAB90E-97C8-401A-97AD-C629DECE250E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2", "WebApi2\WebApi2.csproj", "{B8D8A01C-8A7D-49FB-B551-2569B790B938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi2", "WebApi2\WebApi2.csproj", "{B8D8A01C-8A7D-49FB-B551-2569B790B938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreDemo", "EFCoreDemo\EFCoreDemo.csproj", "{7FFB2597-CDF5-4640-92FC-98A3F334F124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B8D8A01C-8A7D-49FB-B551-2569B790B938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D8A01C-8A7D-49FB-B551-2569B790B938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D8A01C-8A7D-49FB-B551-2569B790B938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FFB2597-CDF5-4640-92FC-98A3F334F124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FFB2597-CDF5-4640-92FC-98A3F334F124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FFB2597-CDF5-4640-92FC-98A3F334F124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FFB2597-CDF5-4640-92FC-98A3F334F124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
