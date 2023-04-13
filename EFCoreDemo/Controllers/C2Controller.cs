@@ -1,6 +1,7 @@
 ﻿using EFCoreDemo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreDemo.Controllers
 {
@@ -28,14 +29,15 @@ namespace EFCoreDemo.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Course> GetById(int id)
+        public ActionResult<Department> GetById(int id)
         {
-            var data = context.Course.Find(id);
-            if (data == null)
+            var course = context.Course.Include("Department").FirstOrDefault(p => p.CourseId == id);
+            if (course == null)
             {
                 return NotFound();
             }
-            return data;
+
+            return course.Department;
         }
 
         [HttpPost]
