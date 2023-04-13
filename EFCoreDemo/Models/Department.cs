@@ -2,7 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace EFCoreDemo.Models
 {
@@ -21,7 +20,6 @@ namespace EFCoreDemo.Models
         public byte[] RowVersion { get; set; }
 
         public virtual Person Instructor { get; set; }
-        [JsonIgnore]
         public virtual ICollection<Course> Course { get; set; }
     }
 }
