@@ -44,8 +44,42 @@ namespace EFCoreDemo.Controllers
             context.Course.Add(course);
             context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetById), 
-                new { id = course.CourseId }, course);
+            return CreatedAtAction(nameof(GetById), new { id = course.CourseId }, course);
+        }
+
+
+        [HttpPut]
+        public ActionResult<Course> Update(int id, Course course)
+        {
+            if (id != course.CourseId)
+            {
+                return BadRequest();
+            }
+
+            var item = context.Course.Find(id);
+
+            item.Title = course.Title;
+            item.Credits = course.Credits;
+
+            context.SaveChanges();
+
+            return Ok(course);
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            var item = context.Course.Find(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            context.Course.Remove(item);
+            context.SaveChanges();
+
+            return Ok(item);
         }
     }
 }
