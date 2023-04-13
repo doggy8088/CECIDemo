@@ -1,5 +1,6 @@
-using EFCoreDemo.Models;
+﻿using EFCoreDemo.Models;
 using Microsoft.EntityFrameworkCore;
+using EFCoreDemo.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
