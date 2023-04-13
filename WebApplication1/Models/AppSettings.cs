@@ -2,6 +2,6 @@
 {
     public class AppSettings
     {
-        public string SMTPAddress { get; set; }
+        public string? SMTPAddress { get; set; }
     }
 }
