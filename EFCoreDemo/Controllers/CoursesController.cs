@@ -39,6 +39,11 @@ namespace EFCoreDemo.Controllers
         }
 
         // GET: api/Courses/5
+        /// <summary>
+        /// 取得課程資料 By Id
+        /// </summary>
+        /// <param name="id">課程編號</param>
+        /// <returns></returns>
         [HttpGet("{id}", Name = "GetCourseById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -1,8 +1,18 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "EFCoreDemo",
-    "version": "1.0"
+    "title": "ContosoUniversity API",
+    "description": "An ASP.NET Core Web API for managing ContosoUniversity items",
+    "termsOfService": "https://example.com/terms",
+    "contact": {
+      "name": "Will Huang",
+      "url": "https://blog.miniasp.com/"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://example.com/license"
+    },
+    "version": "v1"
   },
   "paths": {
     "/api/C2": {
@@ -359,6 +369,7 @@
         "tags": [
           "Courses"
         ],
+        "summary": "取得所有課程資料",
         "operationId": "GetCourseAll",
         "responses": {
           "200": {
@@ -505,11 +516,13 @@
         "tags": [
           "Courses"
         ],
+        "summary": "取得課程資料 By Id",
         "operationId": "GetCourseById",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "課程編號",
             "required": true,
             "schema": {
               "type": "integer",
