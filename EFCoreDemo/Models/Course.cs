@@ -38,6 +38,8 @@ namespace EFCoreDemo.Models
         {
             if (this.Title.Contains("CECI") && this.Credits < 3)
             {
+                throw new Exception("課程名稱在 Credit 小於 3 的時候不允許出現");
+
                 yield return new ValidationResult("課程名稱在 Credit 小於 3 的時候不允許出現 CECI 字樣",
                     new string[] { "Title" });
             }

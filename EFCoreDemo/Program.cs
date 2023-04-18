@@ -48,6 +48,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseExceptionHandler("/api/Error");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
