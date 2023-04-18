@@ -31,11 +31,11 @@ namespace EFCoreDemo.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult<IEnumerable<Course>>> GetCourseAllAsync()
         {
-          if (_context.Course == null)
-          {
-              return NotFound();
-          }
-            return await _context.Course.ToListAsync();
+            if (_context.Course == null)
+            {
+                return NotFound();
+            }
+            return Ok(await _context.Course.ToListAsync());
         }
 
         // GET: api/Courses/5
@@ -50,10 +50,10 @@ namespace EFCoreDemo.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult<Course>> GetCourseByIdAsync(int id)
         {
-          if (_context.Course == null)
-          {
-              return NotFound();
-          }
+            if (_context.Course == null)
+            {
+                return NotFound();
+            }
             var course = await _context.Course.FindAsync(id);
 
             if (course == null)
@@ -106,10 +106,10 @@ namespace EFCoreDemo.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult<Course>> PostCourseAsync(Course course)
         {
-          if (_context.Course == null)
-          {
-              return Problem("Entity set 'ContosoUniversityContext.Course'  is null.");
-          }
+            if (_context.Course == null)
+            {
+                return Problem("Entity set 'ContosoUniversityContext.Course'  is null.");
+            }
             _context.Course.Add(course);
             await _context.SaveChangesAsync();
 
