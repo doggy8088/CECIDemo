@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace EFCoreDemo.Models
 {
@@ -18,9 +19,12 @@ namespace EFCoreDemo.Models
         public int Credits { get; set; }
         public int DepartmentId { get; set; }
 
+        [JsonIgnore]
         public virtual Department Department { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Enrollment> Enrollment { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Person> Instructor { get; set; }
     }
 }

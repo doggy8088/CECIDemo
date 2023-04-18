@@ -21,7 +21,11 @@ namespace EFCoreDemo.Controllers
         }
 
         // GET: api/Courses
-        [HttpGet]
+        /// <summary>
+        /// 取得所有課程資料
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet(Name = "GetCourseAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -35,7 +39,7 @@ namespace EFCoreDemo.Controllers
         }
 
         // GET: api/Courses/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetCourseById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -57,7 +61,7 @@ namespace EFCoreDemo.Controllers
 
         // PUT: api/Courses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name = "PutCourse")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -92,7 +96,7 @@ namespace EFCoreDemo.Controllers
 
         // POST: api/Courses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost(Name = "PostCourse")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<Course>> PostCourseAsync(Course course)
@@ -108,7 +112,7 @@ namespace EFCoreDemo.Controllers
         }
 
         // DELETE: api/Courses/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "DeleteCourseById")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
