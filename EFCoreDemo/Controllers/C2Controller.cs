@@ -28,6 +28,17 @@ namespace EFCoreDemo.Controllers
             return data;
         }
 
+        [HttpGet("v2")]
+        public IEnumerable<Course> GetV2(string? name)
+        {
+            var data = context.Course.AsNoTracking().AsQueryable();
+            if (!String.IsNullOrEmpty(name))
+            {
+                data = data.Where(p => p.Title.Contains(name));
+            }
+            //return data.OrderBy(p => p.CourseId).Skip(10).Take(10);
+            return data;
+        }
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

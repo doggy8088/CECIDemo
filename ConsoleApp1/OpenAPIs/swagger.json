@@ -284,6 +284,53 @@
         }
       }
     },
+    "/api/C2/v2": {
+      "get": {
+        "tags": [
+          "C2"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/C2/{id}": {
       "get": {
         "tags": [
@@ -370,7 +417,7 @@
           "Courses"
         ],
         "summary": "取得所有課程資料",
-        "operationId": "GetCourseAll",
+        "operationId": "GetCourseAllAsync",
         "responses": {
           "200": {
             "description": "Success",
@@ -447,7 +494,7 @@
         "tags": [
           "Courses"
         ],
-        "operationId": "PostCourse",
+        "operationId": "PostCourseAsync",
         "requestBody": {
           "content": {
             "application/json": {
@@ -517,7 +564,7 @@
           "Courses"
         ],
         "summary": "取得課程資料 By Id",
-        "operationId": "GetCourseById",
+        "operationId": "GetCourseByIdAsync",
         "parameters": [
           {
             "name": "id",
@@ -597,7 +644,7 @@
         "tags": [
           "Courses"
         ],
-        "operationId": "PutCourse",
+        "operationId": "PutCourseAsync",
         "parameters": [
           {
             "name": "id",
@@ -698,7 +745,7 @@
         "tags": [
           "Courses"
         ],
-        "operationId": "DeleteCourseById",
+        "operationId": "DeleteCourseByIdAsync",
         "parameters": [
           {
             "name": "id",
