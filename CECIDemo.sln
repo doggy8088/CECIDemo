@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi2", "WebApi2\WebApi2.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreDemo", "EFCoreDemo\EFCoreDemo.csproj", "{7FFB2597-CDF5-4640-92FC-98A3F334F124}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{BB3277EE-CDA6-40D9-93BC-E2F7BFCBAE3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{BB3277EE-CDA6-40D9-93BC-E2F7BFCBAE3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{4B3D5C5B-0FE6-41AF-BC78-CC0350896289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BB3277EE-CDA6-40D9-93BC-E2F7BFCBAE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB3277EE-CDA6-40D9-93BC-E2F7BFCBAE3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB3277EE-CDA6-40D9-93BC-E2F7BFCBAE3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3D5C5B-0FE6-41AF-BC78-CC0350896289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3D5C5B-0FE6-41AF-BC78-CC0350896289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3D5C5B-0FE6-41AF-BC78-CC0350896289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3D5C5B-0FE6-41AF-BC78-CC0350896289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
