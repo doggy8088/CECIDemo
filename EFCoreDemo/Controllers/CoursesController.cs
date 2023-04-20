@@ -27,6 +27,7 @@ namespace EFCoreDemo.Controllers
         /// 取得所有課程資料
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "Admin")]
         [HttpGet("", Name = nameof(GetCourseAllAsync))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -37,6 +38,12 @@ namespace EFCoreDemo.Controllers
             {
                 return NotFound();
             }
+
+            if (User.IsInRole("Admin"))
+            {
+                // 這裡只有 Admin 可以進來執行
+            }
+
             return Ok(await _context.Course.ToListAsync());
         }
 

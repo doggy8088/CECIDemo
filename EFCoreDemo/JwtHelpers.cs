@@ -12,7 +12,7 @@ public class JwtHelpers
         this.Configuration = configuration;
     }
 
-    public string GenerateToken(string userName, int expireMinutes = 30)
+    public string GenerateToken(string userName, int expireMinutes = 30, bool isAdmin = false)
     {
         var issuer = Configuration.GetValue<string>("JwtSettings:Issuer");
         var signKey = Configuration.GetValue<string>("JwtSettings:SignKey");
@@ -36,7 +36,11 @@ public class JwtHelpers
         //claims.Add(new Claim(ClaimTypes.Name, userName));
 
         // TODO: You can define your "roles" to your Claims.
-        claims.Add(new Claim("roles", "Admin"));
+        if (isAdmin)
+        {
+            claims.Add(new Claim("roles", "Admin"));
+        }
+
         claims.Add(new Claim("roles", "Users"));
 
         var userClaimsIdentity = new ClaimsIdentity(claims);

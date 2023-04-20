@@ -18,9 +18,10 @@ namespace EFCoreDemo.Controllers
         [HttpPost("~/api/signin")]
         public IActionResult Sigin(LoginViewModel login)
         {
-            if (login.Username == "will" && login.Password == "123")
+            if (login.Password == "123")
             {
-                var token = jwt.GenerateToken(login.Username);
+                var isAdmin = (login.Username == "will") ? true : false;
+                var token = jwt.GenerateToken(login.Username, isAdmin: isAdmin);
                 return Ok(new
                 {
                     token = token
