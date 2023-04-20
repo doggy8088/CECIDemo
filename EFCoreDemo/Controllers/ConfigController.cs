@@ -10,7 +10,7 @@ namespace EFCoreDemo.Controllers
     {
         private readonly IOptions<JwtSettings> jwtSettings;
 
-        public ConfigController(IOptions<JwtSettings> jwtSettings)
+        public ConfigController(IOptionsSnapshot<JwtSettings> jwtSettings)
         {
             this.jwtSettings = jwtSettings;
         }
