@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EFCoreDemo.Controllers
@@ -29,6 +30,13 @@ namespace EFCoreDemo.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        [HttpGet("~/api/claims")]
+        [Authorize]
+        public IActionResult GetClaims()
+        {
+            return Ok(User.Claims.Select(p => new { p.Type, p.Value }));
         }
 
     }
