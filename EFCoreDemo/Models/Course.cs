@@ -40,8 +40,10 @@ namespace EFCoreDemo.Models
             {
                 throw new Exception("課程名稱在 Credit 小於 3 的時候不允許出現");
 
+#pragma warning disable CS0162 // 偵測到執行不到的程式碼
                 yield return new ValidationResult("課程名稱在 Credit 小於 3 的時候不允許出現 CECI 字樣",
                     new string[] { "Title" });
+#pragma warning restore CS0162 // 偵測到執行不到的程式碼
             }
         }
     }
