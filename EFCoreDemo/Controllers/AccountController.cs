@@ -6,6 +6,7 @@ namespace EFCoreDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         private readonly JwtHelpers jwt;
@@ -16,6 +17,7 @@ namespace EFCoreDemo.Controllers
         }
 
         [HttpPost("~/api/signin")]
+        [AllowAnonymous]
         public IActionResult Sigin(LoginViewModel login)
         {
             if (login.Password == "123")
@@ -34,10 +36,15 @@ namespace EFCoreDemo.Controllers
         }
 
         [HttpGet("~/api/claims")]
-        [Authorize]
         public IActionResult GetClaims()
         {
             return Ok(User.Claims.Select(p => new { p.Type, p.Value }));
+        }
+
+        [HttpGet("~/api/userid")]
+        public IActionResult GetUserId()
+        {
+            return Ok(User.Identity!.Name);
         }
 
     }

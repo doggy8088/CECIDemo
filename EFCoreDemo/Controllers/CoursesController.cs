@@ -53,6 +53,7 @@ namespace EFCoreDemo.Controllers
         /// </summary>
         /// <param name="id">課程編號</param>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet("{id}", Name = nameof(GetCourseByIdAsync))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
