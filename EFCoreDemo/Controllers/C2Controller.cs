@@ -10,15 +10,20 @@ namespace EFCoreDemo.Controllers
     public class C2Controller : ControllerBase
     {
         private readonly ContosoUniversityContext context;
+        private readonly ILogger logger;
 
-        public C2Controller(ContosoUniversityContext _context)
+        public C2Controller(ContosoUniversityContext _context,
+            ILoggerFactory loggerFactory)
         {
             context = _context;
+            this.logger = loggerFactory.CreateLogger("C2");
         }
 
         [HttpGet]
         public IEnumerable<Course> Get(string? name)
         {
+            logger.LogTrace("C2.Get 傳入 name 為 " + name);
+
             var data = context.Course.AsNoTracking().AsQueryable();
             if (!String.IsNullOrEmpty(name))
             {
