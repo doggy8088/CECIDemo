@@ -1,8 +1,15 @@
-﻿@{
+﻿@using Microsoft.Extensions.Options;
+@inject AppSettings appSettings
+@inject IOptions<AppSettings> settings
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome @(appSettings.SMTPAddress) </h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h2>
+    網站名稱: @settings.Value.SiteName
+</h2>
