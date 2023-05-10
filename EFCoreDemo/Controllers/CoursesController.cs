@@ -68,12 +68,12 @@ namespace EFCoreDemo.Controllers
                 return NotFound();
             }
 
-            logger.LogTrace("取得 CourseId 為 " + id + " 的資料");
-            logger.LogDebug("取得 CourseId 為 " + id + " 的資料");
-            logger.LogInformation("取得 CourseId 為 " + id + " 的資料");
-            logger.LogWarning("取得 CourseId 為 " + id + " 的資料");
-            logger.LogError("取得 CourseId 為 " + id + " 的資料");
-            logger.LogCritical("取得 CourseId 為 " + id + " 的資料");
+            logger.LogTrace("取得 CourseId 為 {id} 的資料", id);
+            logger.LogDebug("取得 CourseId 為 {id} 的資料", id);
+            logger.LogInformation("取得 CourseId 為 {id} 的資料", id);
+            logger.LogWarning("取得 CourseId 為 {id} 的資料", id);
+            logger.LogError("取得 CourseId 為 {id} 的資料", id);
+            logger.LogCritical("取得 CourseId 為 {id} 的資料", id);
 
             var course = await _context.Course.FindAsync(id);
 

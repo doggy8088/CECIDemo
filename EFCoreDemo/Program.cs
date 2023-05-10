@@ -10,6 +10,9 @@ using EFCoreDemo;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddJsonConsole();
+
 // Add services to the container.
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
