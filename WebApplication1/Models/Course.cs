@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
 {
@@ -14,7 +15,11 @@ namespace WebApplication1.Models
         }
 
         public int CourseId { get; set; }
+
+        [Required(ErrorMessage = "課程標題為必填")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "請填寫課程評價 (1 ~ 5)")]
+        [Range(1, 5, ErrorMessage = "請填寫課程評價 (1 ~ 5)")]
         public int Credits { get; set; }
         public int DepartmentId { get; set; }
 
