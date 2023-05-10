@@ -10,8 +10,8 @@ using EFCoreDemo;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Logging.ClearProviders();
-builder.Logging.AddJsonConsole();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddJsonConsole();
 
 // Add services to the container.
 

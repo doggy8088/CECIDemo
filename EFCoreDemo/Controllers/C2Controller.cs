@@ -22,7 +22,10 @@ namespace EFCoreDemo.Controllers
         [HttpGet]
         public IEnumerable<Course> Get(string? name)
         {
-            logger.LogTrace("C2.Get 傳入 name 為 {name}", name);
+            using (logger.BeginScope("C2Scope"))
+            {
+                logger.LogTrace("C2.Get 傳入 name 為 {name}", name);
+            }
 
             var data = context.Course.AsNoTracking().AsQueryable();
             if (!String.IsNullOrEmpty(name))
