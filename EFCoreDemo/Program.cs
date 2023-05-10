@@ -10,22 +10,15 @@ using EFCoreDemo;
 using Serilog;
 using Serilog.Events;
 
+var builder = WebApplication.CreateBuilder(args);
+
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
-    .MinimumLevel.Override("C2", LogEventLevel.Verbose)
-    .MinimumLevel.Override("EFCoreDemo.Controllers", LogEventLevel.Verbose)
-    .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
-    .WriteTo.Seq(serverUrl: "http://localhost:5341", apiKey: "mSalWI7gDSrOOtezfb2a")
+    .ReadFrom.Configuration(builder.Configuration)
     .CreateLogger();
 
 try
 {
     Log.Information("Starting web host");
-
-    var builder = WebApplication.CreateBuilder(args);
 
     //builder.Logging.ClearProviders();
     //builder.Logging.AddJsonConsole();
