@@ -24,7 +24,7 @@ namespace EFCoreDemo.Controllers
         {
             using (logger.BeginScope("C2Scope"))
             {
-                logger.LogTrace("C2.Get 傳入 name 為 {name}", name);
+                logger.LogTrace(1, "C2.Get 傳入 name 為 {name}", name);
             }
 
             var data = context.Course.AsNoTracking().AsQueryable();
