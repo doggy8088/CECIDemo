@@ -16,10 +16,13 @@ namespace EFCoreDemo.Controllers
     public class CoursesController : ControllerBase
     {
         private readonly ContosoUniversityContext _context;
+        private readonly ILogger<CoursesController> logger;
 
-        public CoursesController(ContosoUniversityContext context)
+        public CoursesController(ContosoUniversityContext context,
+            ILogger<CoursesController> logger)
         {
             _context = context;
+            this.logger = logger;
         }
 
         // GET: api/Courses
@@ -64,6 +67,14 @@ namespace EFCoreDemo.Controllers
             {
                 return NotFound();
             }
+
+            logger.LogTrace("取得 CourseId 為 " + id + " 的資料");
+            logger.LogDebug("取得 CourseId 為 " + id + " 的資料");
+            logger.LogInformation("取得 CourseId 為 " + id + " 的資料");
+            logger.LogWarning("取得 CourseId 為 " + id + " 的資料");
+            logger.LogError("取得 CourseId 為 " + id + " 的資料");
+            logger.LogCritical("取得 CourseId 為 " + id + " 的資料");
+
             var course = await _context.Course.FindAsync(id);
 
             if (course == null)
